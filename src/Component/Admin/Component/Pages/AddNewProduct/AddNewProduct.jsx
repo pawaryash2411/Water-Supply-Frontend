@@ -98,7 +98,7 @@ const AddNewProduct = () => {
     );
   };
 
-  const filteredProducts = allProductData.filter((product) =>
+  const filteredProducts = allProductData?.filter((product) =>
     product.productName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -292,11 +292,11 @@ const AddNewProduct = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {filteredProducts.length === 0 ? (
+                      {filteredProducts?.length === 0 ? (
                         <h5 className="text-center mt-2">No Products Found</h5>
                       ) : (
                         <>
-                          {filteredProducts.map((product, i) => (
+                          {filteredProducts?.map((product, i) => (
                             <tr key={i}>
                               <td
                                 className="text-center"
