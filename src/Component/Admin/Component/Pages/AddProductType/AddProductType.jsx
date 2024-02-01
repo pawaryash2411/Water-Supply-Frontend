@@ -109,7 +109,6 @@ const AddProductType = () => {
                               aria-label="Example icon button with a menu icon"
                             >
                               <Link to='/admin/editproducttype' style={{textDecoration:"none"}}>  <i className="ri-pencil-line" /></Link>
-
                             </div>
 
                             <div
