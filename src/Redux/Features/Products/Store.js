@@ -1,9 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-// import rootReducer from './reducers';
-// ooment
+import AddNewProductReducer from "./AddNewProductSlice";
 
 const rootReducer = combineReducers({
-
+    newProduct: AddNewProductReducer
 })
 const store = configureStore({
     reducer: rootReducer,
