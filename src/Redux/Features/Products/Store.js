@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 // import rootReducer from './reducers';
-
+// ooment
 
 const rootReducer = combineReducers({
 
