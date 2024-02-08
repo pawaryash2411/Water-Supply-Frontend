@@ -87,7 +87,7 @@ let AdminRoutes = [
   },
 
   {
-    path: "/admin/editproducttype",
+    path: "/admin/editproducttype/:id",
     element: <EditProductType />,
   },
 
@@ -101,7 +101,7 @@ let AdminRoutes = [
     element: <AddNewFillingStock />,
   },
   {
-    path: "/admin/editfillingstock",
+    path: "/admin/editfillingstock/:id",
     element: <EditFillingStock />,
   },
 

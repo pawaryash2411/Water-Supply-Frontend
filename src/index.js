@@ -7,8 +7,8 @@ import '../node_modules/jquery/dist/jquery'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from "react-redux";
-import store from './Redux/Features/Products/Store';
 import { SnackbarProvider } from 'notistack';
+import store from './Redux/Features/Store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

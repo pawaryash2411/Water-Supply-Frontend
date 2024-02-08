@@ -7,6 +7,7 @@ import {
   updateNewProduct,
 } from "../../../../../Redux/Features/Products/AddNewProductSlice";
 import { useSnackbar } from "notistack";
+import { getAllProductType } from "../../../../../Redux/Features/Products/AddProductTypeSlice";
 
 function EditProduct() {
   const { id } = useParams();
@@ -21,6 +22,11 @@ function EditProduct() {
   const [productNameError, setProductNameError] = useState("");
   const [priceError, setPriceError] = useState("");
   const [typeError, setTypeError] = useState("");
+  const { allProductTypeData } = useSelector((state) => state.productType);
+
+  useEffect(() => {
+    dispatch(getAllProductType(() => {}));
+  }, [dispatch]);
 
   const fetchAllSingleProduct = useCallback(() => {
     dispatch(
@@ -170,11 +176,12 @@ function EditProduct() {
                     }}
                   >
                     <option selected="">Select category</option>
-                    <option value="Disposal">Disposal</option>
-                    <option value="20 Gallon Water Bottles">
-                      20 Gallon Water Bottles
-                    </option>
-                    <option value="Ice Product">Ice Product</option>
+                    {allProductTypeData &&
+                      allProductTypeData.map((type, i) => (
+                        <option value={type.productType} key={i}>
+                          {type.productType}
+                        </option>
+                      ))}
                   </select>
                   {typeError && (
                     <div
