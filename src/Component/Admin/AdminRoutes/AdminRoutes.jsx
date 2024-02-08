@@ -120,7 +120,7 @@ let AdminRoutes = [
     element: <StockInOut />,
   },
   {
-    path: "/admin/editstockinout",
+    path: "/admin/editstockinout/:id",
     element: <EditStockInOut />,
   },
 
@@ -148,7 +148,7 @@ let AdminRoutes = [
     element: <AddCustomerPayment />,
   },
   {
-    path: "/admin/edit_customer_payment",
+    path: "/admin/edit_customer_payment/:id",
     element: <EditCustomerPayment />,
   },
 
@@ -166,7 +166,7 @@ let AdminRoutes = [
     element: <CustomerSecurityAmount />,
   },
   {
-    path: "/admin/edit_customer_security_amount",
+    path: "/admin/edit_customer_security_amount/:id",
     element: <EditCustomerSecurityAmount />,
   },
 

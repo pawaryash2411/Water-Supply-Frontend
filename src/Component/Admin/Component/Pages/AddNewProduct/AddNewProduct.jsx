@@ -302,7 +302,7 @@ const AddNewProduct = () => {
                                 className="text-center"
                                 style={{ paddingLeft: "4rem" }}
                               >
-                                {i}
+                                {i+1}
                               </td>
                               <td
                                 className="text-center"
