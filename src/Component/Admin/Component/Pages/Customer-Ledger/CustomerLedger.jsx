@@ -273,7 +273,7 @@ const CustomerLedger = () => {
             <div className="row mt-3">
               <div className="col-md-3">
                 <div className="form-group">
-                  <label>Customer Name/ID</label>
+                  <label>Customer Name</label>
                   <input
                     type="text"
                     className="form-control c2"
@@ -639,6 +639,9 @@ const CustomerLedger = () => {
               style={{
                 background: 'black',
               }} /> */}
+            </div>
+
+
               <div className="row mt-2">
                 <div className="">
                   <div className="table-responsive">
@@ -656,7 +659,7 @@ const CustomerLedger = () => {
                               whiteSpace: "nowrap",
                             }}
                           >
-                            Customer ID
+                            Customer Name
                           </th>
 
                           <th
@@ -822,66 +825,76 @@ const CustomerLedger = () => {
                                   className="text-center"
                                   style={{ paddingLeft: "4rem" }}
                                 >
-                                  {/* {customerLedger} */}
+                                  {customerLedger.custumername}
                                 </td>
-                                <td className="text-center">100</td>
-                                <td
-                                  className="text-center"
-                                  style={{ paddingLeft: "4rem" }}
-                                >
-                                  1231
+                                <td className="text-center">
+                                  {customerLedger.ledgertype}
                                 </td>
                                 <td
                                   className="text-center"
                                   style={{ paddingLeft: "4rem" }}
                                 >
-                                  1231
-                                </td>
-                                <td className="text-center">100</td>
-                                <td
-                                  className="text-center"
-                                  style={{ paddingLeft: "4rem" }}
-                                >
-                                  1231
+                                  {customerLedger.address}
                                 </td>
                                 <td
                                   className="text-center"
                                   style={{ paddingLeft: "4rem" }}
                                 >
-                                  1231
+                                  {customerLedger.contact}
                                 </td>
-                                <td className="text-center">100</td>
-                                <td
-                                  className="text-center"
-                                  style={{ paddingLeft: "4rem" }}
-                                >
-                                  1231
+                                <td className="text-center">
+                                  {customerLedger.securitybalance}
                                 </td>
                                 <td
                                   className="text-center"
                                   style={{ paddingLeft: "4rem" }}
                                 >
-                                  1231
-                                </td>
-                                <td className="text-center">100</td>
-                                <td
-                                  className="text-center"
-                                  style={{ paddingLeft: "4rem" }}
-                                >
-                                  1231
+                                  {customerLedger.outstandingbotal}
                                 </td>
                                 <td
                                   className="text-center"
                                   style={{ paddingLeft: "4rem" }}
                                 >
-                                  1231
+                                  {customerLedger.outstandingbalance}
                                 </td>
-                                <td className="text-center">100</td>
+                                <td className="text-center">
+                                  {customerLedger.totalsalewaterbottal}
+                                  </td>
                                 <td
                                   className="text-center"
                                   style={{ paddingLeft: "4rem" }}
                                 >
-                                  1231
+                                  {customerLedger.totalreturnwaterbottal}
+                                </td>
+                                <td
+                                  className="text-center"
+                                  style={{ paddingLeft: "4rem" }}
+                                >
+                                  {customerLedger.bottalbalance}
+                                </td>
+                                <td className="text-center">
+                                  {customerLedger.billingamount}
+                                  </td>
+                                <td
+                                  className="text-center"
+                                  style={{ paddingLeft: "4rem" }}
+                                >
+                                  {customerLedger.totalamount}
+                                </td>
+                                <td
+                                  className="text-center"
+                                  style={{ paddingLeft: "4rem" }}
+                                >
+                                  {customerLedger.paymentrecieved}
+                                </td>
+                                <td className="text-center">
+                                  {customerLedger.tax}
+                                </td>
+                                <td
+                                  className="text-center"
+                                  style={{ paddingLeft: "4rem" }}
+                                >
+                                  {customerLedger.balance}
                                 </td>
                                 <td
                                   className="text-center"
@@ -894,7 +907,7 @@ const CustomerLedger = () => {
                                       aria-label="Example icon button with a menu icon"
                                     >
                                       <Link
-                                        to="/admin/edit_customer_ledger"
+                                        to={`/admin/edit_customer_ledger/${customerLedger._id}`}
                                         style={{ textDecoration: "none" }}
                                       >
                                         <i className="ri-pencil-line" />
@@ -905,7 +918,11 @@ const CustomerLedger = () => {
                                       className="delete_icon"
                                       aria-label="Example icon button with a menu icon"
                                     >
-                                      <i className="ri-delete-bin-6-line " />
+                                      <i className="ri-delete-bin-6-line " 
+                                       onClick={() => {
+                                          HandleOpenModal(customerLedger?._id);
+                                        }}
+                                       />
                                     </div>
                                   </div>
                                 </td>
@@ -918,11 +935,26 @@ const CustomerLedger = () => {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </section>
       </main>
       {/* End #main */}
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Delete Customer Ledger</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={stockDeleteHandler}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
     </>
   );
 };
